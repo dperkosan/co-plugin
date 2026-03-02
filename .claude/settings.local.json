@@ -8,7 +8,8 @@
       "Bash(flyctl auth whoami)",
       "WebFetch(domain:claude.com)",
       "WebFetch(domain:support.claude.com)",
-      "Bash(claude plugin --help)"
+      "Bash(claude plugin --help)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
