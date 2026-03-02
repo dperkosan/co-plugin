@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "consultants",
-      "source": ".",
+      "source": "./consultants",
       "description": "Client management integration for the consultants database."
     }
   ]
