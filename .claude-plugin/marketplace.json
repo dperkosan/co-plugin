@@ -1,0 +1,13 @@
+{
+  "name": "consultants-plugins",
+  "owner": {
+    "name": "Damir"
+  },
+  "plugins": [
+    {
+      "name": "consultants",
+      "source": "..",
+      "description": "Client management integration for the consultants database."
+    }
+  ]
+}
