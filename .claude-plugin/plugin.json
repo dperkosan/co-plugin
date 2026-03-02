@@ -1,0 +1,8 @@
+{
+  "name": "consultants",
+  "version": "1.0.0",
+  "description": "Client management integration for the consultants database.",
+  "author": {
+    "name": "Damir"
+  }
+}

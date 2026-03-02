@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "consultants": {
+      "type": "http",
+      "url": "https://consultants-mcp.fly.dev/mcp"
+    }
+  }
+}
