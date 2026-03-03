@@ -1,7 +1,7 @@
 {
   "name": "consultants",
-  "version": "1.0.0",
-  "description": "Client management integration for the consultants database.",
+  "version": "1.1.0",
+  "description": "Client and project management integration for the consultants database.",
   "author": {
     "name": "Damir"
   }
