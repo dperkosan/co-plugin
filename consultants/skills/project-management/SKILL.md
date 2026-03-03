@@ -9,7 +9,9 @@ Use the `consultants` MCP tools to fulfill any project-related request:
 - **list_projects** — retrieve all projects; use this whenever the user asks to see, show, or list projects
 - **get_project** — fetch a single project by ID; use when the user asks about a specific project
 - **create_project** — add a new project; requires a client_id and name, description and mode are optional
-- **update_project** — update an existing project; always fetch the project first and follow the Update Workflow below
+- **propose_project_update** — propose changes to a project; returns a diff of current vs proposed values
+- **confirm_project_update** — apply a proposed update after user approval (requires proposal_token)
+- **discard_project_update** — cancel a proposed update without applying (requires proposal_token)
 - **delete_project** — remove a project by ID; always confirm with the user before deleting
 
 ## How to Respond
@@ -18,29 +20,25 @@ When listing projects, present the results as a clean table with columns: ID, Cl
 
 When creating a project, confirm success by showing the saved record.
 
-## Update Workflow
+## Updating Projects
 
-When the user wants to update any field on a project, follow these steps exactly:
+To update a project, call **propose_project_update** with the project_id and all fields (including unchanged ones). The tool returns a diff showing what will change.
 
-1. Fetch the current project using get_project
-2. Show the proposed changes in this exact format:
+Present the diff to the user as a table:
 
-```
-📝 Update Project: [project name]
+| Field | Current | Proposed |
+|-------|---------|----------|
+| description | old value | new value |
 
-Field        | Current                | Proposed
--------------|------------------------|------------------------
-description  | [current value]        | [proposed value]
+Then ask the user to Approve, Reject, or Modify.
 
-What would you like to do?
-1. Approve
-2. Reject
-3. Modify (tell me what to change)
-```
+- **Approve**: call **confirm_project_update** with the proposal_token
+- **Reject**: call **discard_project_update** with the proposal_token
+- **Modify**: call **propose_project_update** again with adjusted values
 
-Only include fields that are actually changing. Do NOT call update_project until the user explicitly approves. If the user picks "Modify", apply their changes and show the comparison again.
+## Deleting Projects
 
-When the user asks to delete a project, show the project details first and ask for explicit confirmation before calling delete_project.
+Show project details first and ask for explicit confirmation before calling delete_project.
 
 If a project is not found, say so clearly and offer to list all projects so the user can find the right one.
 
