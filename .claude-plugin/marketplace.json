@@ -7,7 +7,7 @@
     {
       "name": "consultants",
       "source": "./consultants",
-      "description": "Client management integration for the consultants database."
+      "description": "Client and project management integration for the consultants database."
     }
   ]
 }
